@@ -2,11 +2,11 @@ class HolaMundo {
   String nombre
 
   def saluda(){
-    return "Hola $nombre !!!"
+    "Hola $nombre !!!"
   }
-  static void main(args){
+  static main(args){
     def objeto = new HolaMundo()
-    objeto.setNombre("Juan4")
+    objeto.setNombre("Juan5")
     println(objeto.saluda())
   }
 }
