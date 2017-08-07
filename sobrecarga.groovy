@@ -15,3 +15,5 @@ m2 = new Money(amount : 323)
 
 println m1 + m2
 println m1 - m2
+println m1 * 3
+
