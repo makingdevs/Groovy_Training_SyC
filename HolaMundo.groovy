@@ -12,7 +12,7 @@ public class HolaMundo {
   }
   public static void main(String[] args){
     HolaMundo objeto = new HolaMundo();
-    objeto.setNombre("Juan");
+    objeto.setNombre("Juan0");
     System.out.println(objeto.saluda());
   }
 }
