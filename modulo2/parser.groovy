@@ -1,4 +1,5 @@
-entrenamientoParser = new XmlParser().parse('makingdevs.xml')
+//entrenamientoParser = new XmlParser().parse('makingdevs.xml')
+entrenamientoParser = new XmlSlurper().parse('makingdevs.xml')
 println "Entrenamiento en ${entrenamientoParser.'@organization'}"
 entrenamientoParser.roadmap.category.each { category ->
   println "- ${category.'@name'}"
