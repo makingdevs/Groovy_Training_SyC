@@ -61,3 +61,11 @@ filterIssues.each {
 }
 
 println filterIssues.sql
+
+dataset.add(
+    description:"NUEVO issue", 
+    priority:4, 
+    date_created: new Date()-5)
+
+counter = sql.firstRow("select count(*) as counter from issue limit 0,1")['counter']
+println "Hay ${counter} registros"
