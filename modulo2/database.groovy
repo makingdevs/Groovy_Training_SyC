@@ -48,3 +48,16 @@ sql.execute sqlInsert, data
 sql.eachRow("select * from issue") {
     println it
 }
+
+dataset = sql.dataSet('issue')
+
+filterIssues = dataset.findAll {
+    it.id >= 3 && it.id <= 6
+}
+
+println "*"*100
+filterIssues.each {
+    println it
+}
+
+println filterIssues.sql
