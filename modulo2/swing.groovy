@@ -12,6 +12,12 @@ frame = builder.frame(
       contador++
       lbl.text = "Pusheado ${contador} veces"
     }
+    menuBar {
+      menu("File"){
+        menuItem "New..."
+        menuItem "Open..."
+      }
+    }
   }
 
 frame.show()
