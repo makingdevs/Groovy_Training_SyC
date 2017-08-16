@@ -18,6 +18,11 @@ frame = builder.frame(
         menuItem "Open..."
       }
     }
+    panel {
+      label "Otro label"
+      slider()
+      comboBox(items:['uno','dos','tres'])
+    }
   }
 
 frame.show()
