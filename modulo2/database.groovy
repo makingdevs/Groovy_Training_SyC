@@ -2,6 +2,7 @@
 @Grab(group='mysql', module='mysql-connector-java', version='5.1.6')
 
 import groovy.sql.Sql
+import groovy.json.*
 
 db = [
     url:'jdbc:mysql://localhost/groovy_db',
@@ -61,11 +62,21 @@ filterIssues.each {
 }
 
 println filterIssues.sql
-
 dataset.add(
-    description:"NUEVO issue", 
-    priority:4, 
-    date_created: new Date()-5)
+            description:"NUEVO issue", 
+            priority:4, 
+            date_created: new Date()-5)
 
 counter = sql.firstRow("select count(*) as counter from issue limit 0,1")['counter']
 println "Hay ${counter} registros"
+
+def jsonBuilder = new JsonBuilder()
+
+jsonBuilder.issues {
+    sql.eachRow("select * from issue limit 0,10") { r ->
+        id r.id
+        description r.description
+    }
+}
+
+println JsonOutput.prettyPrint(jsonBuilder.toString())
