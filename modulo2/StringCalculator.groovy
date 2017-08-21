@@ -6,11 +6,8 @@ class StringCalculator {
     def expresion = valor?.split(",|\\n")
     if(expresion == 0 )
       valor.toInteger()
-    else{
-      expresion.collect{
-        it.toInteger()
-      }.sum()
-    }
+    else
+      expresion.collect{ it.toInteger() }.sum()
   }
 
 }
