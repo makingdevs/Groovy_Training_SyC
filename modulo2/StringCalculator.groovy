@@ -4,10 +4,7 @@ class StringCalculator {
     if(valor=="") return 0
 
     def expresion = valor?.split(",|\\n")
-    if(expresion == 0 )
-      valor.toInteger()
-    else
-      expresion*.toInteger().sum()
+    expresion == 0 ? valor.toInteger() : expresion*.toInteger().sum()
   }
 
 }
