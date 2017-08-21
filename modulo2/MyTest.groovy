@@ -3,4 +3,9 @@ class MyTest extends GroovyTestCase {
     def stringCalculator = new StringCalculator()
     assert stringCalculator.add("") == 0
   }
+
+  void testOneNumber(){
+    def stringCalculator = new StringCalculator()
+    assert stringCalculator.add("3") == 3
+  }
 }
