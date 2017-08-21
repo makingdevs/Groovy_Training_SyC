@@ -1,7 +1,7 @@
 class StringCalculator {
 
   int add(String valor){
-    0
+    valor == "" ? 0 : valor.toInteger()
   }
 
 }
