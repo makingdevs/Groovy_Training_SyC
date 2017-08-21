@@ -7,7 +7,7 @@ class StringCalculator {
     if(expresion == 0 )
       valor.toInteger()
     else
-      expresion.collect{ it.toInteger() }.sum()
+      expresion*.toInteger().sum()
   }
 
 }
