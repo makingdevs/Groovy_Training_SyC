@@ -8,7 +8,7 @@ class StringCalculator {
       valor.toInteger()
     }else{
       valor.split(",|\\n").collect{
-        it == "\n" ? 0 : it.toInteger()
+        it.toInteger()
       }.sum()
     }
   }
