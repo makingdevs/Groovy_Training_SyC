@@ -9,7 +9,13 @@ html.html{
     h4 "$session"
     h4 "$context"
     h4 "$application"
-    h4 "$request"
+    h4 "$request.properties"
     h4 "$response"
+  }
+  table {
+    tr {
+      td "Hola mundo"
+      td "Hola mundo"
+    }
   }
 }
