@@ -22,8 +22,7 @@ sql = Sql.newInstance(
 model = [:]
 model.rows = []
 sql.eachRow("select * from issue limit 0,20") {
-  System.out.println it
   model.rows << [id: it.id, description:it.description]
 }
-
+response.contentType = 'application/json'
 json(model)
