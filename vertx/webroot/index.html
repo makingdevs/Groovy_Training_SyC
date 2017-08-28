@@ -77,8 +77,19 @@
       <script src="third-party/jquery/dist/jquery.min.js"></script>
       <script>window.jQuery || document.write('<script src="third-party/jquery/dist/jquery.min.js"><\/script>')</script>
       <script src="third-party/bootstrap/dist/js/bootstrap.min.js"></script>
-      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-      <script src="third-party/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+      <script src="third-party/sockjs-client/dist/sockjs.min.js"></script>
+      <script src="third-party/vertx3-eventbus-client/vertx-eventbus.js"></script>
+      <script>
+          var eb = new EventBus('http://localhost:8181/eventbus');
+
+          eb.onopen = function() {
+            console.log("WebSocket abierto");
+            eb.registerHandler('clock-address', function(error, message) {
+              console.log(message);
+              $("h1").text(message.body);
+            });
+          }
+      </script>
   </body>
 </html>
 
