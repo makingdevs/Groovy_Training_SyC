@@ -15,7 +15,8 @@ def router = Router.router(vertx)
 BridgeOptions options = new BridgeOptions()
 // Defino que entra y que sale
 //outuboundAddresses = ["clock-client", "clock-status", "system-status"]
-options.addOutboundPermitted(new PermittedOptions().setAddress("clock-client"))
+options.addInboundPermitted(new PermittedOptions().setAddress("clock-address"))
+options.addOutboundPermitted(new PermittedOptions().setAddress("clock-address"))
 // Definir mi handler de SockJS
 sockjsHandler = SockJSHandler.create(vertx).bridge(options)
 // Creo la ruta para este bridge
