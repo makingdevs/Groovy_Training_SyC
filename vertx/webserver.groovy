@@ -1,11 +1,11 @@
-server = vertx.createHttpServer()
+def server = vertx.createHttpServer()
+def router = Router.router(vertx)
 
-server.requestHandler { request ->
-
-  def response = request.response()
+router.route().handler { routingContext ->
+  def response = rountingContext.response()
   response.putHeader("content-type", "text/plain")
   response.end("Hello world ${new Date()}")
-
 }
 
-server.listen(8181)
+
+server.requestHandler(router.&accept).listen(8181)
