@@ -7,7 +7,11 @@ eb.onopen = function() {
     $("h1").text(message.body);
   });
   eb.registerHandler('task.list', function(error, message) {
-    console.log(message.body);
+		var source   = $("#tasks-template").html();
+		var template = Handlebars.compile(source);
+		var context = { 'tasks' : message.body  }
+		var html    = template(context);
+		$("#tasks").html(html);
   });
 }
 
