@@ -8,7 +8,8 @@ eb.consumer("task.create") { message ->
   task = [
     id: UUID.randomUUID().toString(),
     description: message.body().description,
-    priority: message.body().priority
+    priority: message.body().priority,
+		date_created: new Date().format("dd/MM/yyyy hh:mm:ss")
   ]
   data = tasks.get("data")
   data << task
