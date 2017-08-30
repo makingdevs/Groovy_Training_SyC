@@ -32,4 +32,5 @@ server.requestHandler(router.&accept).listen(8181)
 
 // Despliego otro verticle
 vertx.deployVerticle("clock.groovy")
-vertx.deployVerticle("tasks.groovy")
+//vertx.deployVerticle("tasks.groovy")
+vertx.deployVerticle("tasks_db.groovy", [instances: 2])
