@@ -1,14 +1,18 @@
 def eb = vertx.eventBus()
 def sd = vertx.sharedData()
 def tasks = sd.getLocalMap("tasks")
+if(tasks.isEmpty()) tasks.put("data", [])
 //def tasks = sd.getClusterWideMap("tasks")
 
 eb.consumer("task.create") { message ->
   task = [
+    id: UUID.randomUUID().toString(),
     description: message.body().description,
     priority: message.body().priority
   ]
-  tasks.put(UUID.randomUUID().toString(), task)
-  eb.publish("task.list", tasks)
+  data = tasks.get("data")
+  data << task
+  tasks.put("data", data)
+  eb.publish("task.list", data)
 }
 

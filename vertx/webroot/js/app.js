@@ -7,12 +7,7 @@ eb.onopen = function() {
     $("h1").text(message.body);
   });
   eb.registerHandler('task.list', function(error, message) {
-    for (var key in message.body) {
-      var task = message.body[key] ;
-      var id = key;
-      var row = "<tr><td>"+key+"</td><td></td><td></td><td></td></tr>"
-      $("table").append(row);
-    }
+    console.log(message.body);
   });
 }
 
