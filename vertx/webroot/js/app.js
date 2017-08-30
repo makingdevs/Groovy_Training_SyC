@@ -10,5 +10,13 @@ eb.onopen = function() {
 
 $("form").on("submit", function(e){
   console.log("Hola mundo");
+  var taskDescription = $("input[name='description']").val()
+  var taskPriority = $("input[name='priority']").val()
+  var task = {
+    description: taskDescription,
+    priority: taskPriority
+  };
+  console.log(task);
+  eb.send("task.create", task);
   e.preventDefault();
 });

@@ -16,6 +16,7 @@ BridgeOptions options = new BridgeOptions()
 // Defino que entra y que sale
 //outuboundAddresses = ["clock-client", "clock-status", "system-status"]
 options.addInboundPermitted(new PermittedOptions().setAddress("clock-address"))
+options.addInboundPermitted(new PermittedOptions().setAddress("task.create"))
 options.addOutboundPermitted(new PermittedOptions().setAddress("clock-address"))
 // Definir mi handler de SockJS
 sockjsHandler = SockJSHandler.create(vertx).bridge(options)
