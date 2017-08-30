@@ -18,6 +18,7 @@ BridgeOptions options = new BridgeOptions()
 options.addInboundPermitted(new PermittedOptions().setAddress("clock-address"))
 options.addInboundPermitted(new PermittedOptions().setAddress("task.create"))
 options.addOutboundPermitted(new PermittedOptions().setAddress("clock-address"))
+options.addOutboundPermitted(new PermittedOptions().setAddress("task.list"))
 // Definir mi handler de SockJS
 sockjsHandler = SockJSHandler.create(vertx).bridge(options)
 // Creo la ruta para este bridge

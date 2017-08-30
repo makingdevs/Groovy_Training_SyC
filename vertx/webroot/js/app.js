@@ -6,6 +6,9 @@ eb.onopen = function() {
     //console.log(message);
     $("h1").text(message.body);
   });
+  eb.registerHandler('task.list', function(error, tasks) {
+    console.log(tasks);
+  });
 }
 
 $("form").on("submit", function(e){
